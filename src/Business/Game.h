@@ -18,9 +18,13 @@ class Game
         };
 
         //! Constructor.
-        Game();
+        explicit Game();
         //! Destructor.
         ~Game();
+
+        //! Gettor.
+        //! \return the Game Board.
+        const STATE* getGameBoard() const;
 
         //! Game routine.
         /*!
@@ -55,7 +59,7 @@ class Game
             \param boardGraphNoTakingKing No taking move, except it requires the king's flying ability.
             \param boardGraphTakingKing Taking move, except it requires the king's flying ability.
         */
-        void computeGraphs(bool** boardGraphNoTaking, bool** boardGraphTaking, bool** boardGraphNoTakingKing, bool** boardGraphTakingKing);
+        void computeGraphs(bool** boardGraphNoTaking, bool** boardGraphTaking, bool** boardGraphNoTakingKing, bool** boardGraphTakingKing) const;
         
         //! Computes the set of valid moves for the current turn.
         /*!
@@ -68,5 +72,5 @@ class Game
             \param boardGraphTakingKing List of possible destinations by capturing an enemy and requiring the king's flying ability.
             \sa computeGraphs
         */
-        void depthFirstSweep(Move& current, bool* captured, bool** boardGraphNoTaking, bool** boardGraphTaking, bool** boardGraphNoTakingKing, bool** boardGraphTakingKing);
+        void depthFirstSweep(Move& current, bool* captured, bool** boardGraphNoTaking, bool** boardGraphTaking, bool** boardGraphNoTakingKing, bool** boardGraphTakingKing) const;
 };

@@ -11,7 +11,7 @@
 
 Game::Game()
 {
-    // The lines are 5 square wide
+    // The lines are 5 squares wide
     m_gameBoard = new STATE*[50];
     for(short i = 0 ; i < 50 ; ++i)
     {
@@ -26,7 +26,7 @@ Game::~Game()
     delete m_gameBoard;
 }
 
-void Game::computeGraphs(bool** boardGraphNoTaking, bool** boardGraphTaking, bool** boardGraphNoTakingKing, bool** boardGraphTakingKing)
+void Game::computeGraphs(bool** boardGraphNoTaking, bool** boardGraphTaking, bool** boardGraphNoTakingKing, bool** boardGraphTakingKing) const
 {
     // Initializations
     for(short i = 0 ; i < 50 ; ++i)
@@ -106,7 +106,7 @@ void Game::computeGraphs(bool** boardGraphNoTaking, bool** boardGraphTaking, boo
 Move::Move(short numCol, short numRow)
     : x(numCol), y(numRow) {}
 
-void Game::depthFirstSweep(Move& current, bool* captured, bool** boardGraphNoTaking, bool** boardGraphTaking, bool** boardGraphNoTakingKing, bool** boardGraphTakingKing)
+void Game::depthFirstSweep(Move& current, bool* captured, bool** boardGraphNoTaking, bool** boardGraphTaking, bool** boardGraphNoTakingKing, bool** boardGraphTakingKing) const
 {
     short currentAddress(GET_ADDRESS(current.x, current.y));
     STATE enemy((m_whitePlays) ? BLACK : WHITE);
@@ -213,7 +213,55 @@ bool Game::nextTurn()
     delete boardGraphNoTakingKing;
     delete boardGraphTakingKing;
 
-    // Ask the move to apply
-    // Check that the move is valid
-    // Apply the move's effects
+    short lengthsSum(0);
+    for(unsigned int i = 0 ; i < validMoves.size() ; ++i)
+        lengthsSum += validMoves[i].longestPathLength;
+    if(!lengthsSum)
+        return false;
+
+    while(validMoves.size() > 0)
+    {
+        short xOrigin, yOrigin, xDestination, yDestination;
+        // Ask the move to apply
+        bool invalidMove(true);
+        unsigned int validMoveIdx(0), successorIdx(0);
+        while(invalidMove)
+        {
+            if(m_whitePlays)
+                m_player1.getNextMove(xOrigin, yOrigin, xDestination, yDestination);
+            else
+                m_player2.getNextMove(xOrigin, yOrigin, xDestination, yDestination);
+
+            // Check that the move's coordinates are valid
+            if(xOrigin < 0 || yOrigin < 0 || xDestination < 0 || yDestination < 0 || xOrigin > 10 || yOrigin > 10 || xDestination > 10 || yDestination > 10)
+                continue;
+
+            // Check that the move's origin does exist
+            for(validMoveIdx = 0 ; validMoveIdx < validMoves.size() && (validMoves[validMoveIdx].x != xOrigin || validMoves[validMoveIdx].y != yOrigin) ; ++validMoveIdx);
+            if(validMoveIdx >= validMoves.size())
+                continue;
+
+            for( ; successorIdx < validMoves[validMoveIdx].successors.size() && (validMoves[validMoveIdx].successors[successorIdx].x != xDestination || validMoves[validMoveIdx].successors[successorIdx].y != yDestination) ; ++successorIdx);
+            if(successorIdx >= validMoves[validMoveIdx].successors.size())
+                continue;
+        }
+
+        // Apply the move's effects
+        m_gameBoard[GET_ADDRESS(xOrigin, yOrigin)] = VOID;
+        for( ; xOrigin != xDestination && yOrigin != yDestination ; ++xOrigin, ++yOrigin)
+            if(m_gameBoard[GET_ADDRESS(xOrigin, yOrigin)] != VOID)
+                m_gameBoard[GET_ADDRESS(xOrigin, yOrigin)] += CAPTURED;
+
+        validMoves = validMoves[validMoveIdx].successors;
+        validMoves.erase(validMoves.begin(), validMoves.begin() + successorIdx);
+        if(validMoves.size() > 1)
+            validMoves.erase(validMoves.begin() + 1, validMoves.end());
+    }
+
+    // Remove captured men
+    for(short i = 0 ; i < 50 ; ++i)
+        if(m_gameBoard[i] & CAPTURE)
+            m_gameBoard[i] = VOID;
 }
+
+const STATE* getGameBoard() const { return m_gameBoard; }
