@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="6.3" multi-file="no">
+  <meta>
+    <name>Project</name>
+    <authors> </authors>
+    <description />
+  </meta>
+  <management>
+    <persons>
+      <person id="P56d8507cbb4147f1a6ea9ba7a5a6c484">
+        <first-name />
+        <last-name />
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <tasks />
+    <requirements />
+    <issues />
+    <to-dos />
+  </management>
+  <glossary />
+  <types>
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types />
+  </types>
+  <filters />
+  <items />
+  <models>
+    <model id="p227231383349061319" name="Model 1" type="" namespace="" order-index="1">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>08/12/2013 01:47:48</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <tagged-values />
+      <abstract-items />
+      <sub-models />
+      <diagram type="uml-class" id="p223605660831975484" name="ClassDiagram1" order-index="1" show-nullability="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>08/12/2013 01:47:48</creation-date>
+          <change-date>08/12/2013 02:02:54</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <tagged-values />
+        <abstract-items>
+          <item id="di183125306974390263" cid="C001" type="class" name="Plateau" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P56d8507cbb4147f1a6ea9ba7a5a6c484" creation-date="08/12/2013 01:49:06">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <attributes />
+            <operations />
+            <template-parameters>
+              <source-codes />
+            </template-parameters>
+          </item>
+          <item id="di174984988682787947" cid="C002" type="class" name="CoupSimple" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P56d8507cbb4147f1a6ea9ba7a5a6c484" creation-date="08/12/2013 01:49:20">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <attributes />
+            <operations />
+            <template-parameters>
+              <source-codes />
+            </template-parameters>
+          </item>
+          <item id="di930122210490015985" cid="C003" type="class" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P56d8507cbb4147f1a6ea9ba7a5a6c484" creation-date="08/12/2013 01:50:01">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <attributes />
+            <operations />
+            <template-parameters>
+              <source-codes />
+            </template-parameters>
+          </item>
+          <item id="di100889310352062176" cid="C004" type="class" name="Coup" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P56d8507cbb4147f1a6ea9ba7a5a6c484" creation-date="08/12/2013 01:50:22">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <attributes />
+            <operations />
+            <template-parameters>
+              <source-codes />
+            </template-parameters>
+          </item>
+          <item id="di340487580323319222" cid="C005" type="class" name="CoupComplexe" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P56d8507cbb4147f1a6ea9ba7a5a6c484" creation-date="08/12/2013 01:52:24">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <attributes />
+            <operations />
+            <template-parameters>
+              <source-codes />
+            </template-parameters>
+          </item>
+          <item id="di359959484415924114" cid="REL003" type="relationship" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P56d8507cbb4147f1a6ea9ba7a5a6c484" creation-date="08/12/2013 01:52:37">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <relation from="di174984988682787947" to="di340487580323319222">
+              <start-role id="" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="" name="" navigability="" association-type="composition" visibility="private" />
+            </relation>
+          </item>
+          <item id="di502492709792476099" cid="GNR001" type="generalization" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P56d8507cbb4147f1a6ea9ba7a5a6c484" creation-date="08/12/2013 01:52:46">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di501182959759485060" cid="GNR002" type="generalization" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P56d8507cbb4147f1a6ea9ba7a5a6c484" creation-date="08/12/2013 01:52:49">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di566205222676005635" cid="C006" type="class" name="CaseAJouer" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="08/12/2013 01:54:05">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <content>
+                  <paragraph line-spacing="1">
+                    <p index="0">
+                      <t />
+                      <style font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </p>
+                  </paragraph>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <attributes>
+              <attribute id="a71b2f26298dc4e01ad64e95c8ca62493345" name="ligne" type="Integer" type-id="Uml.Integer" visibility="private" abstract="false" virtual="false" />
+              <attribute id="ae561a64b579f47afa6b8fa445a14d786353" name="colonne" type="Integer" type-id="Uml.Integer" visibility="private" abstract="false" virtual="false" />
+            </attributes>
+            <operations />
+            <template-parameters>
+              <source-codes>
+                <source-code language="ActionScript" />
+                <source-code language="" />
+              </source-codes>
+            </template-parameters>
+          </item>
+          <item id="di334626209349283620" cid="REL005" type="relationship" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P56d8507cbb4147f1a6ea9ba7a5a6c484" creation-date="08/12/2013 01:55:12">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <relation from="di566205222676005635" to="di174984988682787947">
+              <start-role id="" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="" name="" navigability="" association-type="composition" visibility="private" />
+            </relation>
+          </item>
+          <item id="di884987279995001395" cid="E001" type="enumeration" name="Case" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="08/12/2013 02:01:26">
+            <stereotypes>
+              <stereotype name="enumeration" />
+            </stereotypes>
+            <tagged-values />
+            <documentation>
+              <text>
+                <content>
+                  <paragraph line-spacing="1">
+                    <p index="0">
+                      <t />
+                      <style font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </p>
+                  </paragraph>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <enumeration-items>
+              <enumeration-item id="a738576bbb8a2416aa920f1255a2f7b7b951" name="Vide" value="0" />
+              <enumeration-item id="a8a7de075f045464ba3ce70c208c47646594" name="PionJoueur1" value="1" />
+              <enumeration-item id="a24887431a9c84b17a98b96ec4d772055193" name="DameJoueur1" value="2" />
+              <enumeration-item id="a698dc8df3f4d4fbda82bdd8958260818258" name="PionJoueur2" value="3" />
+              <enumeration-item id="a4afb733bf5a3404d86f042e8e7da3c68736" name="DameJoueur2" value="4" />
+            </enumeration-items>
+          </item>
+          <item id="di272689478326299480" cid="REL006" type="relationship" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P56d8507cbb4147f1a6ea9ba7a5a6c484" creation-date="08/12/2013 02:02:54">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <relation from="di884987279995001395" to="di183125306974390263">
+              <start-role id="" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="" name="" navigability="" association-type="composition" visibility="private" />
+            </relation>
+          </item>
+        </abstract-items>
+        <layer name="Default" visible="true" enabled="true" locked="false">
+          <item id="di183125306974390263" iid="1182e940969b46c79b30d3b289a51483" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="08/12/2013 01:49:06" order-index="0" type="entity">
+            <layout ax="631" ay="112" awidth="140" aheight="160" x="631" y="112" width="140" height="160" angle="0" />
+            <class />
+          </item>
+          <item id="di174984988682787947" iid="f917a788532f4255a652fecc2c9c3699" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="08/12/2013 01:49:20" order-index="1" type="entity">
+            <layout ax="1166" ay="332" awidth="140" aheight="160" x="1166" y="332" width="140" height="160" angle="0" />
+            <class />
+          </item>
+          <item id="di100889310352062176" iid="eab9adc775e8447887332039623cec3b" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="08/12/2013 01:50:22" order-index="2" type="entity">
+            <layout ax="1026" ay="112" awidth="140" aheight="160" x="1026" y="112" width="140" height="160" angle="0" />
+            <class />
+          </item>
+          <item id="di340487580323319222" iid="1c7146947cfe4f8ca6cf5bcf6f9079ed" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="08/12/2013 01:52:24" order-index="3" type="entity">
+            <layout ax="886" ay="332" awidth="140" aheight="160" x="886" y="332" width="140" height="160" angle="0" />
+            <class />
+          </item>
+          <item id="di359959484415924114" iid="5d985586fc8741f8be1dae1476b85728" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="08/12/2013 01:52:37" order-index="4" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" auto-path="" x1="1166" y1="412" x2="1026" y2="412" start-border-pos="0.875" end-border-pos="0.375">
+              <points>
+                <point x="1166" y="412" />
+                <point x="1026" y="412" />
+              </points>
+            </layout>
+            <relation from="di174984988682787947" from-iid="f917a788532f4255a652fecc2c9c3699" to="di340487580323319222" to-iid="1c7146947cfe4f8ca6cf5bcf6f9079ed" />
+            <role-positions start-role="25,15" end-role="25,-15" start-multiplicity="25,-15" end-multiplicity="25,15" />
+          </item>
+          <item id="di502492709792476099" iid="a16476eb611240cea2ba56f0cf4255a9" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="08/12/2013 01:52:46" order-index="5" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" auto-path="" x1="1007" y1="332" x2="1045" y2="272" start-border-pos="0.215909140450614" end-border-pos="0.715909031459263">
+              <points>
+                <point x="1007" y="332" />
+                <point x="1045" y="272" />
+              </points>
+            </layout>
+            <relation from="di340487580323319222" from-iid="1c7146947cfe4f8ca6cf5bcf6f9079ed" to="di100889310352062176" to-iid="eab9adc775e8447887332039623cec3b" />
+          </item>
+          <item id="di501182959759485060" iid="fa5e69341b2a44a3aa3a10d82b1141f5" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="08/12/2013 01:52:49" order-index="6" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" auto-path="" x1="1185" y1="332" x2="1147" y2="272" start-border-pos="0.0340909685407366" end-border-pos="0.534090968540737">
+              <points>
+                <point x="1185" y="332" />
+                <point x="1147" y="272" />
+              </points>
+            </layout>
+            <relation from="di174984988682787947" from-iid="f917a788532f4255a652fecc2c9c3699" to="di100889310352062176" to-iid="eab9adc775e8447887332039623cec3b" />
+          </item>
+          <item id="di566205222676005635" iid="0ec509a254bc4e5b87201fbe28f4cf86" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="08/12/2013 01:54:05" order-index="7" type="entity">
+            <layout ax="1166" ay="566" awidth="140" aheight="160" x="1166" y="566" width="140" height="160" angle="0" />
+            <class />
+          </item>
+          <item id="di334626209349283620" iid="3e823d72878c49a4971429f02441ce45" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="08/12/2013 01:55:12" order-index="8" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" auto-path="" x1="1236" y1="566" x2="1236" y2="492" start-border-pos="0.125" end-border-pos="0.625">
+              <points>
+                <point x="1236" y="566" />
+                <point x="1236" y="492" />
+              </points>
+            </layout>
+            <relation from="di566205222676005635" from-iid="0ec509a254bc4e5b87201fbe28f4cf86" to="di174984988682787947" to-iid="f917a788532f4255a652fecc2c9c3699" />
+            <role-positions start-role="25,15" end-role="25,-15" start-multiplicity="25,13" end-multiplicity="25,15" />
+          </item>
+          <item id="di884987279995001395" iid="17c4565e339245378139dddd8247abc4" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="08/12/2013 02:01:26" order-index="9" type="entity">
+            <layout ax="631" ay="332" awidth="140" aheight="160" x="631" y="332" width="140" height="160" angle="0" />
+            <enumeration />
+          </item>
+          <item id="di272689478326299480" iid="55894aa8e98e402f9cc75b86e13c5eb0" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="08/12/2013 02:02:54" order-index="10" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" auto-path="" x1="701" y1="332" x2="701" y2="272" start-border-pos="0.125" end-border-pos="0.625">
+              <points>
+                <point x="701" y="332" />
+                <point x="701" y="272" />
+              </points>
+            </layout>
+            <relation from="di884987279995001395" from-iid="17c4565e339245378139dddd8247abc4" to="di183125306974390263" to-iid="1182e940969b46c79b30d3b289a51483" />
+            <role-positions start-role="25,15" end-role="25,-15" start-multiplicity="25,-15" end-multiplicity="25,15" />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+  <documents />
+  <document-templates />
+</sim-project>
