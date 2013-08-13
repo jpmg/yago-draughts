@@ -45,7 +45,7 @@ class Game
             std::vector<Move> successors; //!< List of possible following moves.
 
             //! Constructor.
-            Move();
+            Move(short numColum, short numRow);
         };
 
         Player m_player1; //!< White player.

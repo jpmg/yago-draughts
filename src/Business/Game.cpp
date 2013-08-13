@@ -9,10 +9,16 @@
 
 #define GET_ADDRESS(x, y) (x) * 5 + (y) / 2
 
+using namespace std;
+
+Game::Move::Move(short numColumn, short numRow)
+    : x(numColumn), y(numRow) {}
+
 Game::Game()
+    : m_player1(true), m_player2(false)
 {
     // The lines are 5 squares wide
-    m_gameBoard = new STATE*[50];
+    m_gameBoard = new STATE[50];
     for(short i = 0 ; i < 50 ; ++i)
     {
         if(i < 20)
@@ -100,7 +106,6 @@ void Game::computeGraphs(bool** boardGraphNoTaking, bool** boardGraphTaking, boo
                     }
                 }
         }
-
 }
 
 void Game::depthFirstSweep(Move& current, bool* captured, bool** boardGraphNoTaking, bool** boardGraphTaking, bool** boardGraphNoTakingKing, bool** boardGraphTakingKing) const
@@ -108,11 +113,10 @@ void Game::depthFirstSweep(Move& current, bool* captured, bool** boardGraphNoTak
     short currentAddress(GET_ADDRESS(current.x, current.y));
     STATE enemy((m_whitePlays) ? BLACK : WHITE);
 
-    bool validMove= false;
+    bool validMove(false);
 
     // Recursively compute all possible moves
     for(short x = 0 ; x < 10 ; ++x)
-    {
         for(short y = 0 ; y < 10 ; ++y)
         {
             short targetAddress(GET_ADDRESS(x, y));
@@ -148,11 +152,9 @@ void Game::depthFirstSweep(Move& current, bool* captured, bool** boardGraphNoTak
                 )
                 validMove = true;
 
+                if(validMove)
+                    current.successors.push_back(successor);
             }
-
-            if(validMove)
-                current.successors.push_back(successor);
-        }
 
     // Compute the longest move's length
     for(unsigned int i = 0 ; i < current.successors.size() ; ++i)
@@ -197,7 +199,7 @@ bool Game::nextTurn()
                 captured[i] = false;
 
             // The square does not contain one of the player's men
-            if(!(m_whitePlay && m_gameBoard[GET_ADDRESS(x, y)] & WHITE) || !(!m_whitePlays && m_gameBoard[GET_ADDRESS(x, y)] & BLACK))
+            if(!(m_whitePlays && m_gameBoard[GET_ADDRESS(x, y)] & WHITE) || !(!m_whitePlays && m_gameBoard[GET_ADDRESS(x, y)] & BLACK))
                 continue;
 
             Move n(x, y);
@@ -248,7 +250,7 @@ bool Game::nextTurn()
         m_gameBoard[GET_ADDRESS(xOrigin, yOrigin)] = VOID;
         for( ; xOrigin != xDestination && yOrigin != yDestination ; ++xOrigin, ++yOrigin)
             if(m_gameBoard[GET_ADDRESS(xOrigin, yOrigin)] != VOID)
-                m_gameBoard[GET_ADDRESS(xOrigin, yOrigin)] += CAPTURED;
+                m_gameBoard[GET_ADDRESS(xOrigin, yOrigin)] = static_cast<STATE>(m_gameBoard[GET_ADDRESS(xOrigin, yOrigin)] | CAPTURED);
 
         validMoves = validMoves[validMoveIdx].successors;
         validMoves.erase(validMoves.begin(), validMoves.begin() + successorIdx);
@@ -258,8 +260,8 @@ bool Game::nextTurn()
 
     // Remove captured men
     for(short i = 0 ; i < 50 ; ++i)
-        if(m_gameBoard[i] & CAPTURE)
+        if(m_gameBoard[i] & CAPTURED)
             m_gameBoard[i] = VOID;
 }
 
-const STATE* getGameBoard() const { return m_gameBoard; }
+const Game::STATE* Game::getGameBoard() const { return m_gameBoard; }
