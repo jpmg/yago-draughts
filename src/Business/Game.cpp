@@ -16,9 +16,9 @@ Game::Game()
     for(short i = 0 ; i < 50 ; ++i)
     {
         if(i < 20)
-            m_gameBoard = WHITE;
+            m_gameBoard[i] = WHITE;
         else if(i >= 30)
-            m_gameBoard = BLACK;
+            m_gameBoard[i] = BLACK;
     }
 }
 Game::~Game()
@@ -35,7 +35,7 @@ void Game::computeGraphs(bool** boardGraphNoTaking, bool** boardGraphTaking, boo
         boardGraphTaking[i] = new bool[50];
         boardGraphNoTakingKing[i] = new bool[50];
         boardGraphTakingKing[i] = new bool[50];
-        
+
         for(short j = 0 ; j < 50 ; ++j)
             boardGraphNoTaking[i][j] = boardGraphTaking[i][j] = boardGraphNoTakingKing[i][j] = boardGraphTakingKing[i][j] = false;
 
@@ -103,23 +103,21 @@ void Game::computeGraphs(bool** boardGraphNoTaking, bool** boardGraphTaking, boo
 
 }
 
-Move::Move(short numCol, short numRow)
-    : x(numCol), y(numRow) {}
-
 void Game::depthFirstSweep(Move& current, bool* captured, bool** boardGraphNoTaking, bool** boardGraphTaking, bool** boardGraphNoTakingKing, bool** boardGraphTakingKing) const
 {
     short currentAddress(GET_ADDRESS(current.x, current.y));
     STATE enemy((m_whitePlays) ? BLACK : WHITE);
 
+    bool validMove= false;
+
     // Recursively compute all possible moves
     for(short x = 0 ; x < 10 ; ++x)
+    {
         for(short y = 0 ; y < 10 ; ++y)
         {
             short targetAddress(GET_ADDRESS(x, y));
             Move successor(x, y);
             successor.longestPathLength = current.longestPathLength + 1;
-
-            bool validMove(false);
 
             // Check if the destination is reachable by capturing a man
             if(boardGraphTaking[currentAddress][targetAddress] // The target is accessed by normal taking
@@ -141,7 +139,7 @@ void Game::depthFirstSweep(Move& current, bool* captured, bool** boardGraphNoTak
                     // Recursive on capture
                     depthFirstSweep(successor, captured, boardGraphNoTaking, boardGraphTaking, boardGraphNoTakingKing, boardGraphTakingKing);
                 }
-                    
+
             }
             // Otherwise, the destination may be reachable without capturing an enemy
             else if(current.longestPathLength == 0
@@ -176,7 +174,7 @@ bool Game::nextTurn()
     // The follow arrays represent the game board as a graph, where each vertex is a square and each edge links two squares that can be accessed in one move
 
     // Squares that are reachable without jumping over an enemy
-    bool** boardGraphNoTaking = new bool*[50]; 
+    bool** boardGraphNoTaking = new bool*[50];
     // Squares that are reachable by jumping over an enemy
     bool** boardGraphTaking = new bool*[50];
     // Squares that are reachable without jumping over an enemy but require to fly

@@ -5,6 +5,8 @@
 |                   |
 \*******************/
 
+#include <vector>
+
 #include "Player.h"
 
 //! A game of Draughts (International draughts).
@@ -60,7 +62,7 @@ class Game
             \param boardGraphTakingKing Taking move, except it requires the king's flying ability.
         */
         void computeGraphs(bool** boardGraphNoTaking, bool** boardGraphTaking, bool** boardGraphNoTakingKing, bool** boardGraphTakingKing) const;
-        
+
         //! Computes the set of valid moves for the current turn.
         /*!
             Sweep the four graphs that were previously created and created chained lists of valid moves. At the end, keeps only the longests.
