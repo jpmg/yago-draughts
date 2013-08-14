@@ -14,8 +14,8 @@ GameApp::~GameApp()
 
 bool GameApp::OnInit()
 {
-    // create a 800x600 window
-    wxFrame *frm=new wxFrame(NULL, wxID_ANY, _T("Best game ever !!!"), wxDefaultPosition, wxSize(800, 600));
+    // create the game window
+    GameFrame *frm=new GameFrame(_T("Best game ever !!!"), wxSize(983, 679));
     frm->Show();
     return true;
 }
