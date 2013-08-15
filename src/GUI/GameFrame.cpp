@@ -10,11 +10,11 @@ GameFrame::GameFrame(const wxString& title, const wxSize& winSize): wxFrame(NULL
 
     // create a panel for the board
     BoardPanel *board = new BoardPanel(this);
-    sizer_horizontal->Add(board, 2, wxALL | wxEXPAND, 2);
+    sizer_horizontal->Add(board, 2, wxALL | wxEXPAND, 5);
 
     // create panel for game info
     InfoPanel *datas = new InfoPanel(this);
-    sizer_horizontal->Add(datas, 1, wxALL | wxEXPAND, 2);
+    sizer_horizontal->Add(datas, 1, wxALL | wxEXPAND);
 }
 
 GameFrame::~GameFrame()

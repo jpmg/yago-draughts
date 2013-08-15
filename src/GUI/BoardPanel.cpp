@@ -23,7 +23,14 @@ void BoardPanel::paintEvent(wxPaintEvent & evt)
 // draw the game board
 void BoardPanel::render(wxDC&  dc)
 {
-    int cellSize = 64;
+    // get size of the parent
+    int* currentHeight = new int;
+    int* currentWidth = new int;
+    this->GetSize(currentWidth, currentHeight);
+
+    int cellSize = (*currentHeight)/10;
+    int offset = (*currentHeight - (cellSize*10))/2;
+
     dc.SetBrush(*wxGREY_BRUSH);
     dc.SetPen(*wxTRANSPARENT_PEN);
     for(int i=0; i<10;i++)
@@ -32,11 +39,13 @@ void BoardPanel::render(wxDC&  dc)
         {
             if((i+j)%2==0)
             {
-                dc.DrawRectangle(i*cellSize,
-                                 j*cellSize,
+                dc.DrawRectangle(offset+i*cellSize,
+                                 offset+j*cellSize,
                                  cellSize,
                                  cellSize);
             }
         }
     }
+    delete currentHeight;
+    delete currentWidth;
 }
