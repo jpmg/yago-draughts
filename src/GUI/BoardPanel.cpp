@@ -4,7 +4,7 @@ BEGIN_EVENT_TABLE(BoardPanel, wxPanel)
     EVT_PAINT(BoardPanel::paintEvent)
 END_EVENT_TABLE()
 
-BoardPanel::BoardPanel(wxWindow* parent): wxPanel(parent)
+BoardPanel::BoardPanel(wxWindow* parent): wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxFULL_REPAINT_ON_RESIZE)
 {
     //ctor
 }
@@ -24,12 +24,12 @@ void BoardPanel::paintEvent(wxPaintEvent & evt)
 void BoardPanel::render(wxDC&  dc)
 {
     // get size of the parent
-    int* currentHeight = new int;
-    int* currentWidth = new int;
-    this->GetSize(currentWidth, currentHeight);
+    int currentHeight;
+    int currentWidth;
+    this->GetSize(&currentWidth, &currentHeight);
 
-    int cellSize = (*currentHeight)/10;
-    int offset = (*currentHeight - (cellSize*10))/2;
+    int cellSize = (currentHeight)/10;
+    int offset = (currentHeight - (cellSize*10))/2;
 
     dc.SetBrush(*wxGREY_BRUSH);
     dc.SetPen(*wxTRANSPARENT_PEN);
@@ -46,6 +46,4 @@ void BoardPanel::render(wxDC&  dc)
             }
         }
     }
-    delete currentHeight;
-    delete currentWidth;
 }

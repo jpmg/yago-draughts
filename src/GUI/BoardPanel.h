@@ -8,11 +8,11 @@ class BoardPanel: public wxPanel
     public:
         BoardPanel(wxWindow* parent);
         virtual ~BoardPanel();
-        void paintEvent(wxPaintEvent & evt);
-        void render(wxDC&  dc);
         DECLARE_EVENT_TABLE();
     protected:
     private:
+        void paintEvent(wxPaintEvent & evt);
+        void render(wxDC&  dc);
 };
 
 #endif // BOARDPANEL_H
