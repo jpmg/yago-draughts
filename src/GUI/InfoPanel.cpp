@@ -1,6 +1,6 @@
 #include "InfoPanel.h"
 
-InfoPanel::InfoPanel(wxWindow* parent): wxPanel(parent)
+InfoPanel::InfoPanel(wxWindow* parent): wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxFULL_REPAINT_ON_RESIZE)
 {
     //ctor
 }

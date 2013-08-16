@@ -11,8 +11,7 @@ class BoardPanel: public wxPanel
         DECLARE_EVENT_TABLE();
     protected:
     private:
-        void paintEvent(wxPaintEvent & evt);
-        void render(wxDC&  dc);
+        void render(wxPaintEvent & evt);
 };
 
 #endif // BOARDPANEL_H
