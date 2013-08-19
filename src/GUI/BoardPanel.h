@@ -12,6 +12,14 @@ class BoardPanel: public wxPanel
     protected:
     private:
         void render(wxPaintEvent & evt);
+
+        //PLACEHOLDER
+        enum STATE
+        {
+            VOID = 0, WHITE = 1, BLACK = 2, KING = 4, CAPTURED = 8
+        };
+        int* m_gameBoard;
+        //END PLACEHOLDER
 };
 
 #endif // BOARDPANEL_H
