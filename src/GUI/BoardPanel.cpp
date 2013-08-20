@@ -10,7 +10,7 @@ BoardPanel::BoardPanel(wxWindow* parent): wxPanel(parent, wxID_ANY, wxDefaultPos
     //PLACEHOLDER
     m_gameBoard = new int[50];
     for(int i = 0 ; i < 50 ; ++i)
-        m_gameBoard[i] = VOID;
+        m_gameBoard[i] = EMPTY;
     m_gameBoard[1] = m_gameBoard[8] = WHITE | KING;
     m_gameBoard[16] = m_gameBoard[17] = m_gameBoard[18] = m_gameBoard[25] = m_gameBoard[33] = m_gameBoard[44] = WHITE;
     m_gameBoard[21] = m_gameBoard[38] = BLACK | KING;
