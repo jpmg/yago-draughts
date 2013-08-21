@@ -12,6 +12,7 @@ class BoardPanel: public wxPanel
     protected:
     private:
         void render(wxPaintEvent & evt);
+        void mouseEvent(wxMouseEvent& evt);
 
         //PLACEHOLDER
         enum STATE
@@ -20,6 +21,26 @@ class BoardPanel: public wxPanel
         };
         int* m_gameBoard;
         //END PLACEHOLDER
+
+        // Device Contexts
+        wxBrush m_whiteSquareBrush;
+        wxBrush m_blackSquareBrush;
+        wxColor m_whiteManBrush;
+        wxColor m_whiteManPen;
+        wxColor m_blackManBrush;
+        wxColor m_blackManPen;
+        wxColor m_kingColor;
+        wxFont m_kingFont;
+
+        // Drawing variables
+        int m_offset;
+        int m_cellSize;
+
+        // Moving variables
+        bool m_isMoving;
+        int m_numOriginSquare;
+        long m_previousX;
+        long m_previousY;
 };
 
 #endif // BOARDPANEL_H
